@@ -13,6 +13,10 @@ class Program
         string inputData = Files.ImportInput(path);
 
         Counter.DoTheThing(inputData);
+        
+         //TODO: Add percentual frequency of letters.
+         //TODO: Add options of output
+         //TODO: Refactor file reading (exceptions, more robustness)
     }
 }
 
