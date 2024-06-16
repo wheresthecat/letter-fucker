@@ -2,9 +2,9 @@
 
 public static class Counter
 {
-    public static List<Dictionary<char, int>> Count(string textInput)
+    public static Dictionary<char, int> Count(string textInput)
     {
-        List<Dictionary<char, int>> output;
+        Dictionary<char, int> output = new Dictionary<char, int>();
 
         return output;
     }
