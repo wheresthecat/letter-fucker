@@ -17,6 +17,7 @@ class Program
          //TODO: Add percentual frequency of letters.
          //TODO: Add options of output
          //TODO: Refactor file reading (exceptions, more robustness)
+         //TODO: Sorted Dictinary instead of diy sorting?
     }
 }
 
