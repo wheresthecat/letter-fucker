@@ -15,6 +15,8 @@ public static class Counter
         }
         Console.WriteLine($"Letters total: {LetterCount(input)}");
         PrintSet(OrderByValue(pairs));
+        Console.WriteLine("--------------");
+        PrintSortedSet(GetSortedByKey(pairs));
     }
     
     // Update or add new. If key is already existed it just increment the value by one. If not, adds a new key/value part.
@@ -47,6 +49,14 @@ public static class Counter
         Console.WriteLine("---");
     }
 
+    public static void PrintSortedSet(SortedDictionary<char, int> input)
+    {
+        foreach (KeyValuePair<char, int> item in input)
+        {
+            Console.WriteLine($"{item.Key} - {item.Value}");
+        }
+    }
+
     public static Dictionary<char, int> OrderByValue(Dictionary<char, int> input)
     {
         Dictionary<char, int> orderedDict = new Dictionary<char, int>();
@@ -57,6 +67,17 @@ public static class Counter
         }
 
         return orderedDict;
+    }
+
+    public static SortedDictionary<char, int> GetSortedByKey(Dictionary<char, int> input)
+    {
+        SortedDictionary<char, int> sortedOutput = new SortedDictionary<char, int>();
+        foreach (KeyValuePair<char, int> item in input)
+        {
+            sortedOutput.Add(item.Key, item.Value);
+        }
+
+        return sortedOutput;
     }
 
     public static int LetterCount(string input)
