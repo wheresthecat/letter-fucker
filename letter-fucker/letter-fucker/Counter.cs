@@ -76,7 +76,7 @@ public static class Counter
         {
             sortedOutput.Add(item.Key, item.Value);
         }
-
+        
         return sortedOutput;
     }
 
