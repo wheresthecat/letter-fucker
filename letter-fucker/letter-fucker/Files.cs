@@ -6,12 +6,25 @@ public class Files
     {
         string output = "";
 
-        using (StreamReader sr = new StreamReader(path))
+        try
         {
-            output = sr.ReadToEnd();
+            using (StreamReader sr = new StreamReader(path))
+            {
+                output = sr.ReadToEnd();
+            }
         }
-        
-        return output;
+        catch (FileNotFoundException e)
+        {
+            Console.WriteLine("File not found.");
+            Console.WriteLine(e.Message);
+        }
+        catch(FieldAccessException e)
+        {
+            Console.WriteLine("Couldn't access the file.");
+            Console.WriteLine(e.Message);
+        }
+
+    return output;
     }
     
 }
