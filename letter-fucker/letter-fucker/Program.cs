@@ -10,3 +10,13 @@ class Program
 }
 
 
+// Process:
+// Count all letter for later % counting.
+
+
+//TODO: Add percentual frequency of letters.
+//TODO: Add options of output
+//TODO: Sorted Dictinary instead of diy sorting
+//TODO: COMMAND LINE ARGUMENTS! -- I sort of started this, but it's really crude, fucked up and barely working piece of shit.
+
+//(Done, sort of): Refactor file reading (exceptions, more robustness)

@@ -5,6 +5,7 @@ namespace letter_fucker;
 
 public class Counter
 {
+    private static int letterCounter;
     // Defaul and main function. It all gets worked there.
     [Command(Description = "Counts the frequency of letters in a text.",
         UsageLines = new[]
@@ -35,6 +36,7 @@ public class Counter
                 if (Char.IsLetter(letter))
                 {
                     UpdateDict(pairs, letter);
+                    letterCounter++;
                 }
             }
             Console.WriteLine($"Letters total: {LetterCount(input)}");
@@ -63,23 +65,6 @@ public class Counter
     public static void CreateNewOrUpdateExisting<TKey, TValue>(IDictionary<TKey, TValue> map, TKey key, TValue value)
     {
         map[key] = value;
-    }
-
-    public static void PrintSet(Dictionary<char, int> input)
-    {
-        foreach (KeyValuePair<char, int> item in input)
-        {
-            Console.WriteLine($"{item.Key} - {item.Value}");
-        }
-        Console.WriteLine("---");
-    }
-
-    public static void PrintSortedSet(SortedDictionary<char, int> input)
-    {
-        foreach (KeyValuePair<char, int> item in input)
-        {
-            Console.WriteLine($"{item.Key} - {item.Value}");
-        }
     }
 
     public static Dictionary<char, int> OrderByValue(Dictionary<char, int> input)
@@ -116,5 +101,23 @@ public class Counter
             }
         }
         return letterCounter;
+    }
+    
+    // Printing stuff
+    public static void PrintSet(Dictionary<char, int> input)
+    {
+        foreach (KeyValuePair<char, int> item in input)
+        {
+            Console.WriteLine($"{item.Key} - {item.Value} ({Common.GetPercents(item.Value, letterCounter)}%)");
+        }
+        Console.WriteLine("---");
+    }
+
+    public static void PrintSortedSet(SortedDictionary<char, int> input)
+    {
+        foreach (KeyValuePair<char, int> item in input)
+        {
+            Console.WriteLine($"{item.Key} - {item.Value}");
+        }
     }
 }

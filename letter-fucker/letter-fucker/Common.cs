@@ -6,8 +6,8 @@ public static class Common
     {
         double output = 0.00f;
 
-        output = part / (whole / 100);
+        output = part / (whole / 100.00f);
 
-        return output;
+        return Math.Round(output, 2);
     }
 }
