@@ -110,7 +110,6 @@ public class Counter
         {
             Console.WriteLine($"{item.Key} - {item.Value} ({Common.GetPercents(item.Value, letterCounter)}%)");
         }
-        Console.WriteLine("---");
     }
 
     public static void PrintSortedSet(SortedDictionary<char, int> input)
