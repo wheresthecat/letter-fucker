@@ -62,7 +62,7 @@ public class Counter
         }
     }
     
-    public static void CreateNewOrUpdateExisting<TKey, TValue>(IDictionary<TKey, TValue> map, TKey key, TValue value)
+    private static void CreateNewOrUpdateExisting<TKey, TValue>(IDictionary<TKey, TValue> map, TKey key, TValue value)
     {
         map[key] = value;
     }
@@ -117,7 +117,7 @@ public class Counter
     {
         foreach (KeyValuePair<char, int> item in input)
         {
-            Console.WriteLine($"{item.Key} - {item.Value}");
+            Console.WriteLine($"{item.Key} - {item.Value} ({Common.GetPercents(item.Value, letterCounter)}%)");
         }
     }
 }
