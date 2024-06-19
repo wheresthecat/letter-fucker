@@ -12,7 +12,7 @@ public class Experiments
 
         string inputData = Files.ImportInput(path);
 
-        Counter.DoTheThing(inputData);
+        //Counter.Count(inputData);
         
         //TODO: Add percentual frequency of letters.
         //TODO: Add options of output

@@ -1,22 +1,47 @@
-﻿namespace letter_fucker;
+﻿using CommandDotNet;
+using CommandDotNet.Rendering;
 
-public static class Counter
+namespace letter_fucker;
+
+public class Counter
 {
-    public static void DoTheThing(string input)
-    {
-        Dictionary<char, int> pairs = new Dictionary<char, int>();
-        
-        foreach (var letter in input.ToLower())
+    // Defaul and main function. It all gets worked there.
+    [Command(Description = "Counts the frequency of letters in a text.",
+        UsageLines = new[]
         {
-            if (Char.IsLetter(letter))
-            {
-                UpdateDict(pairs, letter);
-            }
+            "Count [source file path] (txt)",
+            "%AppName% %CmdPath% file.txt"
+        },
+        ExtendedHelpTextLines = new[]
+        {
+            "Count [source file path] (txt)",
+            "%AppName% %CmdPath% file.txt"
+        })]
+    public void Count(
+        [Operand(Description = "path to source file")]string path)
+    {
+        string input = Files.ImportInput(path);
+
+        if (!File.Exists(path))
+        {
+            Console.WriteLine("Error: File not found. Check path, maybe?");
         }
-        Console.WriteLine($"Letters total: {LetterCount(input)}");
-        PrintSet(OrderByValue(pairs));
-        Console.WriteLine("--------------");
-        PrintSortedSet(GetSortedByKey(pairs));
+        else
+        {
+            Dictionary<char, int> pairs = new Dictionary<char, int>();
+        
+            foreach (var letter in input.ToLower())
+            {
+                if (Char.IsLetter(letter))
+                {
+                    UpdateDict(pairs, letter);
+                }
+            }
+            Console.WriteLine($"Letters total: {LetterCount(input)}");
+            PrintSet(OrderByValue(pairs));
+            Console.WriteLine("--------------");
+            PrintSortedSet(GetSortedByKey(pairs));
+        }
     }
     
     // Update or add new. If key is already existed it just increment the value by one. If not, adds a new key/value part.
