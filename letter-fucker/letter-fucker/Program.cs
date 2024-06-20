@@ -22,7 +22,7 @@ class Program
 
 // FEATURES to add:
 //  - Output to a file,
-//  - verbose/non verbose mod like limit output only to first five most frequent letter or something like that
+//  - verbose/non verbose mod like limit output only to first five most frequent letters or something like that
 //  - some sorting options - sort by value, sort by key or both
 
 //(Done, sort of): Refactor file reading (exceptions, more robustness)

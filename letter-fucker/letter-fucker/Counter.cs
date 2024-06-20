@@ -6,6 +6,7 @@ namespace letter_fucker;
 public class Counter
 {
     private static int letterCounter;
+    
     // Defaul and main function. It all gets worked there.
     [Command(Description = "Counts the frequency of letters in a text.",
         UsageLines = new[]

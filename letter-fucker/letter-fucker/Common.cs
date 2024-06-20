@@ -2,6 +2,7 @@
 
 public static class Common
 {
+    
     public static double GetPercents(int part, int whole)
     {
         double output = 0.00f;
