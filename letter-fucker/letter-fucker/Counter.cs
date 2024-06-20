@@ -5,47 +5,7 @@ namespace letter_fucker;
 
 public class Counter
 {
-    private static int letterCounter;
-    
-    // Defaul and main function. It all gets worked there.
-    [Command(Description = "Counts the frequency of letters in a text.",
-        UsageLines = new[]
-        {
-            "Count [source file path] (txt)",
-            "%AppName% %CmdPath% file.txt"
-        },
-        ExtendedHelpTextLines = new[]
-        {
-            "Count [source file path] (txt)",
-            "%AppName% %CmdPath% file.txt"
-        })]
-    public void Count(
-        [Operand(Description = "path to source file")]string path)
-    {
-        string input = Files.ImportInput(path);
-
-        if (!File.Exists(path))
-        {
-            Console.WriteLine("Error: File not found. Check path, maybe?");
-        }
-        else
-        {
-            Dictionary<char, int> pairs = new Dictionary<char, int>();
-        
-            foreach (var letter in input.ToLower())
-            {
-                if (Char.IsLetter(letter))
-                {
-                    UpdateDict(pairs, letter);
-                    letterCounter++;
-                }
-            }
-            Console.WriteLine($"Letters total: {LetterCount(input)}");
-            PrintSet(OrderByValue(pairs));
-            Console.WriteLine("--------------");
-            PrintSortedSet(GetSortedByKey(pairs));
-        }
-    }
+    public static int letterCounter;
     
     // Update or add new. If key is already existed it just increment the value by one. If not, adds a new key/value part.
 

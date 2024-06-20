@@ -6,7 +6,7 @@ class Program
 {
     static int Main(string[] args) => AppRunner.Run(args);
 
-    public static AppRunner AppRunner => new AppRunner<Counter>();
+    public static AppRunner AppRunner => new AppRunner<Commands>();
 }
 
 
