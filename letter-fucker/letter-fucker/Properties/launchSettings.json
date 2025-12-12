@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "letter-fucker": {
+      "commandName": "Project",
+      "commandLineArgs": "Count \"D:\\temp\\big\\mega.txt\""
+    }
+  }
+}
