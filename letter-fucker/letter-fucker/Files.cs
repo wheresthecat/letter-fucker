@@ -8,7 +8,9 @@ public class Files
 
         try
         {
-            using (StreamReader sr = new StreamReader(path))
+            using(FileStream fs = File.Open(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using(BufferedStream bs = new BufferedStream(fs))
+            using (StreamReader sr = new StreamReader(bs))
             {
                 output = sr.ReadToEnd();
             }
